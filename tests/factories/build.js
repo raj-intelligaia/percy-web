@@ -1,6 +1,6 @@
 import FactoryGuy from 'ember-data-factory-guy';
 import moment from 'moment';
-import faker from 'faker';
+import faker from 'faker'; 
 
 FactoryGuy.define('build', {
   sequences: {
@@ -10,7 +10,7 @@ FactoryGuy.define('build', {
     buildNumber: FactoryGuy.generate('buildNumber'),
     state: 'pending',
     branch: 'master',
-    userAgent: () => faker.lorem.slug(11),
+    userAgent: () => faker.lorem.slug(10),
     createdAt: () => new Date(),
     updatedAt: () => new Date(),
     commit: FactoryGuy.belongsTo('commit'),
