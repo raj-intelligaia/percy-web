@@ -172,11 +172,6 @@ export default function() {
     return project;
   });
 
-  this.get('/organizations/:slug/subscription', function(schema, request) {
-    let organization = schema.organizations.findBy({slug: request.params.slug});
-    return organization.subscription;
-  });
-
   this.patch('/organizations/:slug/subscription', function(schema, request) {
     let attrs = this.normalizedRequestAttrs();
     let organization = schema.organizations.findBy({slug: request.params.slug});

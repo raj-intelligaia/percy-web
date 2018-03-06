@@ -72,6 +72,7 @@ module.exports = function(environment) {
     if (process.env.PERCY_DEV_MIRAGE === 'yes') {
       ENV['ember-cli-mirage'] = {
         enabled: true,
+        discoverEmberDataModels: true,
       };
     }
     ENV.APP.githubUrls = {

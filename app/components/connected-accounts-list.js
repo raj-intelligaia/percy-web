@@ -1,5 +1,4 @@
 import Component from '@ember/component';
-import {alias} from '@ember/object/computed';
 import {inject as service} from '@ember/service';
 import EnsureStatefulLogin from 'percy-web/mixins/ensure-stateful-login';
 
@@ -7,7 +6,6 @@ export default Component.extend(EnsureStatefulLogin, {
   session: service(),
   store: service(),
   showCreateAccount: false,
-  model: alias('identities'),
   actions: {
     accountCreated() {
       this.set('showCreateAccount', false);
@@ -15,7 +13,7 @@ export default Component.extend(EnsureStatefulLogin, {
       this.get('flashMessages').success('You may now login using this account.', {
         title: 'Email/password account created!',
       });
-      this.get('model').reload();
+      this.get('identities').reload();
     },
     addIdentity(providerName) {
       if (providerName === 'auth0') {

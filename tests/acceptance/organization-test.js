@@ -6,7 +6,7 @@ import setupAcceptance, {
 describe('Acceptance: Organization', function() {
   setupAcceptance();
 
-  context('user is member', function() {
+  describe('user is member', function() {
     setupSession(function(server) {
       let organization = server.create('organization', 'withUser');
       let project = server.create('project', {organization});
@@ -50,7 +50,7 @@ describe('Acceptance: Organization', function() {
     });
   });
 
-  context('user is admin', function() {
+  describe('user is admin', function() {
     setupSession(function(server) {
       this.organization = server.create('organization', 'withAdminUser');
     });
@@ -146,7 +146,7 @@ describe('Acceptance: Organization', function() {
       percySnapshot(this.test.fullTitle() + '| select organization');
     });
 
-    context('organization is on trial account', function() {
+    describe('organization is on trial account', function() {
       setupSession(function(server) {
         this.organization = server.create('organization', 'withAdminUser', 'withTrial');
       });

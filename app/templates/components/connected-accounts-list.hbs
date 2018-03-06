@@ -2,7 +2,7 @@
   <section class="mb-6">
     <h2 class="f1 text-weight-regular">Connected Accounts</h2>
     {{connected-accounts-panel
-      identities=model
+      identities=identities
       deleteIdentity=(action "deleteIdentity")
       addIdentity=(action "addIdentity")
     }}
@@ -10,7 +10,7 @@
   {{#if showCreateAccount}}
     <section>
       <h2 class="f1 text-weight-regular mb-1">Create Account</h2>
-      {{forms/account-new user=model saveSuccess=(action "accountCreated")}}
+      {{forms/account-new model=(hash) saveSuccess=(action "accountCreated")}}
     </section>
   {{/if}}
 </div>

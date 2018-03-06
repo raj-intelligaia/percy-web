@@ -7,8 +7,9 @@ export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     let organization = this.modelFor('organizations.organization');
     let includes = 'subscription.current-usage-stats';
-    return this.store.findRecord('organization', organization.id, {include: includes});
+    return this.get('store').findRecord('organization', organization.id, {include: includes});
   },
+
   actions: {
     didTransition() {
       this._super.apply(this, arguments);

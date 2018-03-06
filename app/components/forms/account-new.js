@@ -1,4 +1,3 @@
-import {alias} from '@ember/object/computed';
 import {computed, get} from '@ember/object';
 import Changeset from 'ember-changeset';
 import lookupValidator from 'ember-changeset-validations';
@@ -12,7 +11,7 @@ import BaseFormComponent from './base';
 export default BaseFormComponent.extend(EnsureStatefulLogin, {
   session: service(),
   store: service(),
-  model: alias('user'),
+  model: null,
   validator: AccountNewValidations,
 
   changeset: computed('model', 'validator', function() {

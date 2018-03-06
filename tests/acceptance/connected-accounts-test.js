@@ -5,8 +5,7 @@ describe('Acceptance: ConnectedAccounts when user has GitHub identity', function
   setupAcceptance({authenticate: true});
 
   setupSession(function(server) {
-    const user = server.create('user', 'withGithubIdentity');
-    this.user = user;
+    server.create('user', 'withGithubIdentity');
   });
 
   it('shows page with a add email/password account button', function() {
@@ -62,11 +61,10 @@ describe('Acceptance: ConnectedAccounts when user has Auth0 identity', function(
   setupAcceptance({authenticate: true});
 
   setupSession(function(server) {
-    const user = server.create('user', 'withAuth0Identity', {
+    server.create('user', 'withAuth0Identity', {
       name: 'Tyrion Lannister',
       email: 'tyrion@lannisters.net',
     });
-    this.user = user;
   });
 
   it('shows page with a add email/password account button', function() {
