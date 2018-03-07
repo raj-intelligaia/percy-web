@@ -7,6 +7,9 @@ export default JSONAPISerializer.extend({
       projects: {
         related: `/api/v1/organizations/${organization.slug}/projects`,
       },
+      organizationUsers: {
+        related: `/api/v1/organizations/${organization.slug}/organization-users`,
+      },
     };
   },
 });
