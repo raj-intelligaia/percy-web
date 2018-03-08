@@ -7,6 +7,9 @@ export default JSONAPISerializer.extend({
       tokens: {
         related: `/api/v1/projects/${project.fullSlug}/tokens`,
       },
+      builds: {
+        related: `/api/v1/projects/${project.fullSlug}/builds`,
+      },
     };
   },
 });
