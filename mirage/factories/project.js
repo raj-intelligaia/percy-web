@@ -11,4 +11,8 @@ export default Factory.extend({
   fullSlug() {
     return `${this.organization.slug}/${this.slug}`;
   },
+
+  afterCreate(project, server) {
+    server.create('token', {project});
+  },
 });
