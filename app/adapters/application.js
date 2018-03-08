@@ -50,6 +50,12 @@ export default DS.JSONAPIAdapter.extend(DataAdapterMixin, {
     if (requestType === 'createRecord' && modelName === 'project') {
       return utils.buildApiUrl('projectsCollection', snapshot.record.get('organization.slug'));
     }
+    // Use the nested /organizations/:org_id/projects collection route.
+    if (requestType === 'query' && modelName === 'project') {
+      let organization = query.organization;
+      delete query.organization;
+      return utils.buildApiUrl('projectsCollection', organization.get('slug'));
+    }
     // Use the nested /organizations/:org_id/invites collection route when creating invites.
     if (requestType === 'createRecord' && modelName === 'invite') {
       return utils.buildApiUrl('invites', snapshot.record.get('organization.slug'));

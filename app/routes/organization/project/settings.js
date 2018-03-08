@@ -5,21 +5,10 @@ import {hash} from 'rsvp';
 export default Route.extend(AuthenticatedRouteMixin, {
   model() {
     const project = this.modelFor('organization.project');
-    const orgId = project.belongsTo('organization').id();
-    const organization = this.store.findRecord('organization', orgId);
-    const projects = organization.then(org => {
-      return org.get('projects');
-    });
+    const organization = this.modelFor('organization');
+    const projects = this.store.query('project', {organization: organization});
 
     return hash({organization, project, projects});
-  },
-
-  setupController(controller, model) {
-    controller.setProperties({
-      project: model.project,
-      organization: model.organization,
-      projects: model.projects,
-    });
   },
 
   actions: {

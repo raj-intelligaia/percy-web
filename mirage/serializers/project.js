@@ -10,9 +10,6 @@ export default JSONAPISerializer.extend({
       builds: {
         related: `/api/v1/projects/${project.fullSlug}/builds`,
       },
-      organization: {
-        related: `/api/v1/projects/${project.fullSlug}/organization`,
-      },
     };
   },
 });

@@ -5,25 +5,15 @@ import {hash} from 'rsvp';
 
 export default Route.extend(AuthenticatedRouteMixin, ResetScrollMixin, {
   model() {
-    let project = this.modelFor('organization.project');
-    const orgId = project.belongsTo('organization').id();
-    const organization = this.store.findRecord('organization', orgId);
-    const projects = organization.then(org => {
-      return org.get('projects');
-    });
+    const project = this.modelFor('organization.project');
+    const organization = this.modelFor('organization');
+    const projects = this.store.query('project', {organization: organization});
+    const sortedProjects = projects.then(projects => projects.sortBy('isDisabled', 'name'));
 
     return hash({
       organization,
       project,
-      projects,
-    });
-  },
-
-  setupController(controller, model) {
-    controller.setProperties({
-      project: model.project,
-      projects: model.projects,
-      sortedProjects: model.projects.sortBy('isDisabled', 'name'),
+      sortedProjects,
     });
   },
 

@@ -119,7 +119,11 @@ describe('Acceptance: Project', function() {
     setupSession(function(server) {
       let organization = server.create('organization', 'withUser');
       let project = server.create('project', {
-        name: 'with builds',
+        name: 'project with builds',
+        organization,
+      });
+      server.create('project', {
+        name: 'project without builds',
         organization,
       });
 

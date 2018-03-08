@@ -1,6 +1,9 @@
 import Mirage from 'ember-cli-mirage';
 
 export default function() {
+  // Enable this to see verbose request logging from mirage:
+  // this.logging = true;
+
   this.passthrough('http://api.amplitude.com');
 
   this.get('/api/auth/session', function() {
