@@ -72,13 +72,11 @@ describe('Acceptance: Project', function() {
       visit(`/${this.disabledProject.fullSlug}/settings`);
       andThen(() => {
         expect(currentPath()).to.equal('organization.project.settings');
-      });
-      andThen(() => {
         expect(find('[data-test-sidenav-list-projects] li:eq(0)').text()).to.match(
-          /Enabled Project/,
+          /Disabled Project/,
         );
         expect(find('[data-test-sidenav-list-projects] li:eq(1)').text()).to.match(
-          /Disabled Project/,
+          /Enabled Project/,
         );
         expect(find('[data-test-sidenav-list-projects] li:eq(2)').text()).to.match(
           /Start new project/,
@@ -92,10 +90,10 @@ describe('Acceptance: Project', function() {
       andThen(() => {
         expect(currentPath()).to.equal('organization.project.settings');
         expect(find('[data-test-sidenav-list-projects] li:eq(0)').text()).to.match(
-          /Enabled Project/,
+          /Disabled Project/,
         );
         expect(find('[data-test-sidenav-list-projects] li:eq(1)').text()).to.match(
-          /Disabled Project/,
+          /Enabled Project/,
         );
         expect(find('[data-test-sidenav-list-projects] li:eq(2)').text()).to.match(
           /Start new project/,
