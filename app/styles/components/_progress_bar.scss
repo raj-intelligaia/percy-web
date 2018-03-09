@@ -1,0 +1,8 @@
+.progress-bar {
+  top: 0;
+  bottom: 0;
+  width: 100%;
+  background: var(--gray-000);
+  z-index: -1;
+  transform: translate3d(-75%, 0, 0);
+}

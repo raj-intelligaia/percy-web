@@ -1,4 +1,5 @@
 <div class="build-card c-pointer {{if build.isExpired 'opacity-50'}} is-{{dasherize build.state}} is-{{if build.isFinished (dasherize build.reviewState)}}" {{action "navigateToBuild"}} data-test-build-card>
+  <div class="progress-bar position-absolute"></div>
   <div>
     <div style="margin-bottom: -6px;">
       {{#link-to "organization.project.builds.build" build.project.organization.slug build.project.slug build.id class="f2 text-mono"}}{{build.buildNumber}}{{/link-to}}

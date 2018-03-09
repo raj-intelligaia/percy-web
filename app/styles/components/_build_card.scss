@@ -38,7 +38,7 @@
 .build-card {
   align-items: center;
   padding: var(--spacing-3) var(--spacing-4);
-  background: var(--white);
+  border-bottom: 1px solid var(--gray-100);
   overflow: hidden;
   grid-template-areas:
     "build"
@@ -51,8 +51,6 @@
   }
 
   &:hover {
-    box-shadow: inset 0 1px 0 var(--gray-100), inset 0 -1px 0 var(--gray-100);
-
     &::after {
       transform: translate3d(4px, 0, 0);
     }
@@ -60,9 +58,5 @@
     .status-pill {
       transform: scale(1.05);
     }
-  }
-
-  &:nth-child(even) {
-    background: var(--gray-000);
   }
 }
