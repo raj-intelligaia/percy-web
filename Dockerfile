@@ -22,4 +22,12 @@ RUN yarn
 RUN bower install --allow-root
 # Setup the full app directory (do this after package install to speed up docker builds).
 ADD . /app/src/
-RUN yarn run build-production
+
+ARG EMBER_TEST_BUILD="false"
+RUN if [ "$EMBER_TEST_BUILD" = "true" ] ; then \
+  yarn run build; \
+else \
+  yarn run build-production; \
+fi
+
+

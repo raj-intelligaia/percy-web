@@ -4,6 +4,8 @@ steps:
       - "make build"
       - "make test"
     timeout_in_minutes: 20
+    env:
+      EMBER_TEST_BUILD: 'true'
 
   - label: ":percy::hamster: publish"
     branches: "master"
