@@ -4,8 +4,10 @@ _pull_parent_image:
 build: _pull_parent_image
 	docker-compose build
 
-test: _pull_parent_image
+build-test: _pull_parent_image
 	docker-compose build --build-arg EMBER_TEST_BUILD=true web
+
+test: _pull_parent_image
 	docker-compose run web yarn test:parallel
 
 publish:
